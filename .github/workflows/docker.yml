@@ -34,6 +34,13 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
       # Login against a Docker registry except on PR
       # https://github.com/docker/login-action
       - name: Log into registry ${{ env.REGISTRY }}
@@ -60,7 +67,7 @@ jobs:
           file: 7.4/Dockerfile
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ github.repository }}:7.4,${{ github.repository }}:7
+          tags: ${{ env.REGISTRY }}/${{ github.repository }}:7.4,${{ env.REGISTRY }}/${{ github.repository }}:7
           labels: ${{ steps.meta.outputs.labels }}
 
       # Build and push Docker image with Buildx (don't push on PR)
@@ -71,5 +78,5 @@ jobs:
           file: 8.0/Dockerfile
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ github.repository }}:8.0,${{ github.repository }}:8,${{ github.repository }}:latest
+          tags: ${{ env.REGISTRY }}/${{ github.repository }}:8.0,${{ env.REGISTRY }}/${{ github.repository }}:8,${{ env.REGISTRY }}/${{ github.repository }}:latest
           labels: ${{ steps.meta.outputs.labels }}     
