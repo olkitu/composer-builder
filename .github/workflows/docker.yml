@@ -55,21 +55,21 @@ jobs:
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
       - name: Build and push Docker image 7.4
-        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        uses: docker/build-push-action@v2
         with:
           file: 7.4/Dockerfile
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ github.repository }}:7.4
+          tags: ${{ github.repository }}:7.4,${{ github.repository }}:7
           labels: ${{ steps.meta.outputs.labels }}
 
       # Build and push Docker image with Buildx (don't push on PR)
       # https://github.com/docker/build-push-action
       - name: Build and push Docker image 8.0
-        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        uses: docker/build-push-action@v2
         with:
           file: 8.0/Dockerfile
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ github.repository }}:8.0, ${{ github.repository }}:latest
+          tags: ${{ github.repository }}:8.0,${{ github.repository }}:8,${{ github.repository }}:latest
           labels: ${{ steps.meta.outputs.labels }}     
