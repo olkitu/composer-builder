@@ -9,3 +9,5 @@ RUN BUILD_PACKAGES='libpng-dev libzip-dev' \
     && docker-php-ext-install gd zip \
     && apt-get remove -y $BUILD_PACKAGES \
     && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /app
