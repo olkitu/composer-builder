@@ -67,7 +67,7 @@ jobs:
           file: 7.4/Dockerfile
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ env.REGISTRY }}/${{ github.repository }}:${{github.sha}},${{ env.REGISTRY }}/${{ github.repository }}:7.4,${{ env.REGISTRY }}/${{ github.repository }}:7
+          tags: ${{ env.REGISTRY }}/${{ github.repository }}:7.4-${{github.sha}},${{ env.REGISTRY }}/${{ github.repository }}:7.4,${{ env.REGISTRY }}/${{ github.repository }}:7
           labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/amd64,linux/386,linux/arm/v6,linux/arm/v7,linux/arm64/v8
 
@@ -79,7 +79,7 @@ jobs:
           file: 7.4-debian/Dockerfile
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ env.REGISTRY }}/${{ github.repository }}:${{github.sha}},${{ env.REGISTRY }}/${{ github.repository }}:7.4-debian,${{ env.REGISTRY }}/${{ github.repository }}:7-debian
+          tags: ${{ env.REGISTRY }}/${{ github.repository }}:7.4-debian-${{github.sha}},${{ env.REGISTRY }}/${{ github.repository }}:7.4-debian,${{ env.REGISTRY }}/${{ github.repository }}:7-debian
           labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/amd64,linux/386,linux/arm/v6,linux/arm/v7,linux/arm64/v8
 
@@ -91,7 +91,7 @@ jobs:
           file: 8.0-debian/Dockerfile
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ env.REGISTRY }}/${{ github.repository }}:${{github.sha}},${{ env.REGISTRY }}/${{ github.repository }}:8.0-debian,${{ env.REGISTRY }}/${{ github.repository }}:8-debian,${{ env.REGISTRY }}/${{ github.repository }}:latest-debian
+          tags: ${{ env.REGISTRY }}/${{ github.repository }}:8.0-debian-${{github.sha}},${{ env.REGISTRY }}/${{ github.repository }}:8.0-debian,${{ env.REGISTRY }}/${{ github.repository }}:8-debian,${{ env.REGISTRY }}/${{ github.repository }}:latest-debian
           labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/amd64,linux/386,linux/arm/v6,linux/arm/v7,linux/arm64/v8 
 
@@ -103,6 +103,6 @@ jobs:
           file: 8.0/Dockerfile
           context: .
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ env.REGISTRY }}/${{ github.repository }}:${{github.sha}},${{ env.REGISTRY }}/${{ github.repository }}:8.0,${{ env.REGISTRY }}/${{ github.repository }}:8,${{ env.REGISTRY }}/${{ github.repository }}:latest
+          tags: ${{ env.REGISTRY }}/${{ github.repository }}:8.0-${{github.sha}},${{ env.REGISTRY }}/${{ github.repository }}:8.0,${{ env.REGISTRY }}/${{ github.repository }}:8,${{ env.REGISTRY }}/${{ github.repository }}:latest
           labels: ${{ steps.meta.outputs.labels }}
           platforms: linux/amd64,linux/386,linux/arm/v6,linux/arm/v7,linux/arm64/v8 
