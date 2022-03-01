@@ -4,8 +4,6 @@ Composer builder image with PHP and Composer.
 
 ## Tags
 
-By default alpine based image, add to tag `-debian` to use Debian based image, example `8.0-debian`.
-
 * PHP 7.4: `7`, `7.4`
 * PHP 8.0: `8.0`
 * PHP 8.1: `latest`, `8`, `8.1`
